@@ -5,6 +5,7 @@
 // [7, 1, 5, 3, 6, 4]
 // Here's what you need to find:
 // The difference between the cheapest price you could have bought the stock and the most expensive price you could have sold it later on.
+
 const prices = [7, 1, 5, 3, 6, 4];
 const maxProfit = (prices) => {
   let minPrice = prices[0];
@@ -18,6 +19,7 @@ const maxProfit = (prices) => {
     maxProfit = Math.max(maxProfit, potentialProfit);
     console.log(maxProfit);
   }
+  return maxProfit;
 };
 
 maxProfit(prices);
