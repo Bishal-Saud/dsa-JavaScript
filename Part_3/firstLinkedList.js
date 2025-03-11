@@ -63,9 +63,46 @@ class LinkedList {
     return this;
   }
   shift() {
+    let temp = this.head;
     if (!this.head) return null;
     this.head = this.head.next;
+    temp.next = null;
     this.length--;
+
+    if (this.length === 0) {
+      return null;
+    }
+    return temp;
+  }
+
+  getFirst() {
+    return this.head;
+  }
+
+  getLast() {
+    if (!this.head) return null;
+
+    let temp = this.head;
+    while (temp) {
+      if (!temp.next) {
+        return temp;
+      }
+
+      temp = temp.next;
+    }
+  }
+
+  getElementByIndex(index) {
+    let counter = 0;
+    let temp = this.head;
+    if (!this.head) return null;
+    while (temp) {
+      if (counter === index) {
+        return temp;
+      }
+      counter++;
+      temp = temp.next;
+    }
   }
 }
 
@@ -76,8 +113,10 @@ myLinkedList.push(3);
 myLinkedList.push(2);
 
 // myLinkedList.unshift(4);
-console.log("----", myLinkedList);
-myLinkedList.shift();
-console.log("----", myLinkedList);
+// console.log("----", myLinkedList);
+// myLinkedList.shift();
+// myLinkedList.getFirst();
+console.log("----", myLinkedList.getElementByIndex(4));
+// console.log("----", myLinkedList.getLast());
 // console.log("----", myLinkedList.pop());
 // console.log("----", myLinkedList);
