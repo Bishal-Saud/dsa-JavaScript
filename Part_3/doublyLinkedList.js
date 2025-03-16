@@ -67,16 +67,33 @@ class DoublyLinkedList {
     this.length--;
     return temp;
   }
+
+  reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+
+    let next = temp;
+    let prev = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next;
+      temp.next = prev;
+      prev = temp;
+      temp = next;
+    }
+  }
 }
 
 const myDoublylinkedList = new DoublyLinkedList(0);
 myDoublylinkedList.push(1);
-// myDoublylinkedList.push(2);
+myDoublylinkedList.push(2);
 // myDoublylinkedList.unShift(3);
 // myDoublylinkedList.push(4)
-console.log("--1---", myDoublylinkedList);
-myDoublylinkedList.shift();
+// console.log("--1---", myDoublylinkedList);
+// myDoublylinkedList.shift();
 
 // myDoublylinkedList.pop();
+myDoublylinkedList.reverse();
 
 console.log("-----", myDoublylinkedList);
