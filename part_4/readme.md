@@ -2,6 +2,8 @@
 
 ## What is Stack ?
 
+`A stack is a linear data structure that follows LIFO or (Last in,first out) principle`
+
 ## Creating our first stack
 
 ## stack push method
