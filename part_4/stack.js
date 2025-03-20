@@ -13,6 +13,9 @@ class Stack {
   }
 
   push(value) {
+    if (this.length === 0) {
+      this.first = newNode;
+    }
     const newNode = new Node(value);
     newNode.next = this.first;
     this.first = newNode;
@@ -20,11 +23,21 @@ class Stack {
 
     return this;
   }
+  pop() {
+    if (this.length === 0) return null;
+    let temp = this.first;
+    this.first = this.first.next;
+    temp.next = null;
+    this.length--;
+
+    return temp;
+  }
 }
 
 const firstStack = new Stack(0);
 firstStack.push(1);
 firstStack.push(2);
 firstStack.push(3);
-
-console.log("-----", firstStack);
+console.log("-----1", firstStack);
+firstStack.pop();
+console.log("-----2", firstStack);
