@@ -39,12 +39,31 @@ class Queue {
     this.length--;
     return temp;
   }
+
+  minQueue() {
+    if (this.length < 0) {
+      return undefined;
+    }
+    let current = this.first;
+    let minValue = current.value;
+
+    while (current.next) {
+      current = current.next;
+      if (current.value < minValue) {
+        minValue = current.value;
+      }
+    }
+    console.log("minimum", minValue);
+
+    return minValue;
+  }
 }
 
-const firstQueue = new Queue(0);
+const firstQueue = new Queue(10);
 firstQueue.enqueue(1);
 firstQueue.enqueue(2);
 firstQueue.enqueue(3);
-console.log("----", firstQueue);
-firstQueue.dequeue();
-console.log("----", firstQueue);
+firstQueue.minQueue();
+// console.log("----", firstQueue);
+// firstQueue.dequeue();
+// console.log("----", firstQueue);
