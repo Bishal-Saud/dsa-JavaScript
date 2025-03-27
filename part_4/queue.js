@@ -53,7 +53,7 @@ class Queue {
         minValue = current.value;
       }
     }
-    console.log("minimum", minValue);
+    console.log("minimum", current.value, minValue);
 
     return minValue;
   }
