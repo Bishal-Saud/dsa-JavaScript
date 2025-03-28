@@ -11,8 +11,6 @@ const isValidParenthesis = (str) => {
       stack.push(char);
     } else {
       const top = stack.pop();
-      console.log(top);
-
       if (!top || brackets[top] !== char) {
         return false;
       }
