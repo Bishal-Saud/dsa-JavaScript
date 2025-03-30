@@ -18,7 +18,6 @@ class HashTable {
 
   set(key, value) {
     const index = this._hashFunction(key);
-    console.log("-----", index);
 
     if (!this.keyMap[index]) this.keyMap[index] = [];
     this.keyMap[index].push([key, value]);
