@@ -23,8 +23,25 @@ class HashTable {
     this.keyMap[index].push([key, value]);
     return this;
   }
+
+  get(key) {
+    const index = this._hashFunction(key);
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        console.log("---", this.keyMap[index][i][1]);
+
+        if (this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1];
+        }
+      }
+    }
+
+    return undefined;
+  }
 }
 
 const phoneBook = new HashTable();
-
-console.log(phoneBook.set("john", "555-444-33"));
+phoneBook.set("john", "555-444-33");
+phoneBook.set("sohn", "33-222-111");
+phoneBook.set("rohn", "888-454-53");
+console.log(phoneBook.get("john"));
