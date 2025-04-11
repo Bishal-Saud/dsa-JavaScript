@@ -72,6 +72,16 @@ class BST {
     }
     return data;
   }
+
+  dfspreOrder(node = this.root, data = []) {
+    if (node === null) return data;
+    data.push(node.value);
+
+    if (node.left) this.dfspreOrder(node.left, data);
+    if (node.right) this.dfspreOrder(node.right, data);
+
+    return data;
+  }
 }
 
 const tree = new BST();
@@ -83,6 +93,6 @@ tree.insert(7);
 tree.insert(9);
 // console.log(tree.include(1));
 
-console.log(tree.bfs());
+console.log(tree.dfspreOrder());
 
 // console.log(tree);
