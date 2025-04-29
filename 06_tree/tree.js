@@ -82,6 +82,25 @@ class BST {
 
     return data;
   }
+
+  dfsPostOrder(node = this.root, data = []) {
+    if (node === null) return data;
+
+    if (node.left) this.dfsPostOrder(node.left, data);
+    if (node.right) this.dfsPostOrder(node.right, data);
+    data.push(node.value);
+
+    return data;
+  }
+  dfsInOrder(node = this.root, data = []) {
+    if (node === null) return data;
+
+    if (node.left) this.dfsInOrder(node.left, data);
+    data.push(node.value);
+    if (node.right) this.dfsInOrder(node.right, data);
+
+    return data;
+  }
 }
 
 const tree = new BST();
@@ -93,6 +112,8 @@ tree.insert(7);
 tree.insert(9);
 // console.log(tree.include(1));
 
-console.log(tree.dfspreOrder());
+// console.log(tree.dfspreOrder());
+// console.log(tree.dfsPostOrder());
+console.log(tree.dfsInOrder());
 
 // console.log(tree);
