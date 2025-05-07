@@ -32,14 +32,31 @@ class Graph {
     }
     return false;
   }
+
+  removeVertex(vtx) {
+    if (!this.adjacencyList[vtx]) return false;
+
+    for (let adjacentVertex of this.adjacencyList[vtx]) {
+      this.adjacencyList[adjacentVertex] = this.adjacencyList[
+        adjacentVertex
+      ].filter((v) => v !== vtx);
+    }
+
+    delete this.adjacencyList[vtx];
+    return this;
+  }
 }
 
 const graph = new Graph();
 graph.addVertex("A");
 graph.addVertex("B");
 graph.addVertex("C");
+graph.addVertex("D");
+
 graph.addEdge("A", "B");
 graph.addEdge("B", "C");
-graph.addEdge("C", "A");
-graph.removeEdge("B", "C");
+graph.addEdge("A", "D");
+graph.addEdge("D", "C");
+// graph.removeEdge("B", "C");
+// graph.removeVertex("B");
 console.log(graph);
